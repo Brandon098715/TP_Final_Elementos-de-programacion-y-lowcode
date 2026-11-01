@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Entregable 2 de 4 — Interfaz Streamlit sobre el backend
 
 Se suma al Entregable 1 la interfaz de usuario. Streamlit consume **solo la API**, nunca la base.
@@ -21,3 +22,4 @@ streamlit run ui/app.py            # terminal 2 → http://localhost:8501
 ```
 Probá: crear un estudiante, calcular matching de una oferta, ver Reportes. Para el error de conexión,
 cerrá uvicorn y recargá la interfaz. Tests: `pytest -v` (41).
+=======

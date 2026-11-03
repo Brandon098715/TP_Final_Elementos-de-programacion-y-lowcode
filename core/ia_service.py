@@ -1,4 +1,5 @@
 """
+<<<<<<< HEAD
 Servicio de IA: genera recomendaciones de formación con un modelo local (Ollama).
 
 Flujo:
@@ -109,11 +110,27 @@ Respondé SOLO con un JSON con esta forma exacta:
 
 def ollama_disponible() -> bool:
     """True si Ollama responde en OLLAMA_URL (lo usa /health)."""
+=======
+Servicio de IA (Ollama local).
+
+Por ahora solo verifica si Ollama está disponible (lo usa /health).
+En la Fase 4 se agrega la generación de recomendaciones.
+"""
+
+import requests
+
+from core import config
+
+
+def ollama_disponible() -> bool:
+    """True si Ollama responde en OLLAMA_URL."""
+>>>>>>> 9559d6114f31926bd85adc58ce52afe2ca020610
     try:
         respuesta = requests.get(f"{config.OLLAMA_URL}/api/tags", timeout=3)
         return respuesta.status_code == 200
     except requests.RequestException:
         return False
+<<<<<<< HEAD
 
 
 def _llamar_ollama(prompt: str) -> str:
@@ -241,3 +258,5 @@ def generar_y_guardar(resultado_id: int) -> dict:
 
     contenido = generar_recomendacion(estudiante, oferta, resultado)
     return database.crear_recomendacion(resultado_id, contenido, config.OLLAMA_MODEL)
+=======
+>>>>>>> 9559d6114f31926bd85adc58ce52afe2ca020610

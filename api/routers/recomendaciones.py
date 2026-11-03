@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """Endpoints de recomendaciones generadas por IA (origen 'ia') y su revisión humana."""
 
 from typing import Literal
@@ -6,10 +7,24 @@ from fastapi import APIRouter, status
 
 from api.schemas import RecomendacionSalida, RevisionEntrada
 from core import database, ia_service
+=======
+"""Endpoints de recomendaciones generadas por IA (origen 'ia') y su revisión humana.
+
+La generación (POST /recomendaciones/{resultado_id}) se agrega en la Fase 4.
+"""
+
+from typing import Literal
+
+from fastapi import APIRouter
+
+from api.schemas import RecomendacionSalida, RevisionEntrada
+from core import database
+>>>>>>> 9559d6114f31926bd85adc58ce52afe2ca020610
 
 router = APIRouter(prefix="/recomendaciones", tags=["Recomendaciones (IA)"])
 
 
+<<<<<<< HEAD
 @router.post("/{resultado_id}", response_model=RecomendacionSalida,
              status_code=status.HTTP_201_CREATED,
              summary="Generar con IA una recomendación para un resultado de matching",
@@ -23,6 +38,8 @@ def generar_recomendacion(resultado_id: int):
     return ia_service.generar_y_guardar(resultado_id)
 
 
+=======
+>>>>>>> 9559d6114f31926bd85adc58ce52afe2ca020610
 @router.get("", response_model=list[RecomendacionSalida], summary="Listar recomendaciones de IA")
 def listar_recomendaciones(
     estado: Literal["pendiente_revision", "aprobada", "rechazada"] | None = None,
